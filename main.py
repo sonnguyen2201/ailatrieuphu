@@ -1,3 +1,7 @@
+from question import Question
+from db import find_question_set, change
+
+
 play = input('Bạn có muốn chơi game không [y/n]:')
 if play == 'y':
     print('Trò chơi bắt đầu')
@@ -15,3 +19,5 @@ if play == 'y':
 elif play == 'n':
     print('Trò chơi kết thúc')
 
+q1 = Question(1)
+print(q1.content)
