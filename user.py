@@ -8,4 +8,4 @@ class User:
     curr_ques = 1
 
     def pass_q(self, q: Question):
-        if 
+        pass
