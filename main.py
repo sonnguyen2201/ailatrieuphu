@@ -1,41 +1,27 @@
 import json
-def play_game(flag,level, score):
-    with open('./questions.json') as qs:
-        questions = json.load(qs)
-    for i in range(len(questions)-1):
-        if questions[i]['level'] == level:
-            question = questions[i]
-
-    print("Question: " + question['question'])
-    print("A : "+ question['a'] )
-    print("B : " + question['b'])
-    print("C: " + question['c'])
-    print("D : " + question['d'])
-    print("\n")
-    user_answer = input("Please input your answer :")
-    if user_answer == question['key']:
-        print("Your answer is correct")
-        score += 1
-        level += 1
-        print("your score is: %d") %(score)
-        flag = True
-    else:
-        flag = False
-        print("wrong!")
+import random
+from Play import play_game
 
 print("Wellcome to Ai La Trieu Phu")
 
 score = 0
 level = 1
 play = input("Do you want to play ?: ")
+helps = {'1':'50/50','2':'Audiences','3':'change question'}
 while play == 'y':
-    flag = True
+    flag = False
     print("Good luck \n")
-    play_game(flag,level,score)
-    if flag is True:
-        play = input("Do you want to play ?: ")
+    play_game(flag,level,score,helps)
+    if flag == True:
+        if level > 10:
+            print("Congrat! You won!")
+            break
+        play = input("Do you want to continue to play ?: ")
     else:
+        print("Sao lai vao day!")
         break
     
 print("Good bye!")
+
+
  
